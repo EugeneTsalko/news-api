@@ -1,0 +1,15 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": 2,
+    "prettier/prettier": "error"
+  },
+  "plugins": ["prettier"]
+}
