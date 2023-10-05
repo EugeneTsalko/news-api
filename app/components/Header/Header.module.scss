@@ -2,7 +2,7 @@
 @use '@/styles/mixins.scss' as mix;
 
 .header {
-  @include mix.flex();
+  @include mix.flex(space-around);
   padding: var.$spacing-l 0;
 
   h1 {
