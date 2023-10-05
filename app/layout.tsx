@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/Header/Header';
 
 export const metadata = {
   title: 'News by EugeneTsalko',
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
