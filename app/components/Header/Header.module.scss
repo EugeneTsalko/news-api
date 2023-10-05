@@ -1,3 +1,11 @@
+@use '@/styles/variables.scss' as var;
+@use '@/styles/mixins.scss' as mix;
+
 .header {
-  border: 1px solid red;
+  @include mix.flex();
+  padding: var.$spacing-l 0;
+
+  h1 {
+    color: var.$color-700-red;
+  }
 }
