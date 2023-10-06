@@ -1,9 +1,11 @@
 .searchBox {
-  align-self: flex-end;
+  border: 1px solid blue;
+  // align-self: flex-end;
   max-width: 40%;
   width: 100%;
+  display: flex;
 
   input {
-    width: 80%;
+    flex: 1;
   }
 }
