@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const schemaNews = z.object({
   source: z.object({ id: z.union([z.string(), z.null()]) }),
-  author: z.string(),
+  author: z.union([z.string(), z.null()]),
   title: z.string(),
   description: z.string(),
   url: z.string(),
