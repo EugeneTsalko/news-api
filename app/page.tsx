@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from '@/page.module.scss';
+import getNews from './utils/getNews';
 
-export default function Home() {
-  return <main className={styles.main}>Hello next</main>;
+async function Home() {
+  const news = await getNews('test');
+  console.log(news);
+
+  return <main className={styles.main}>{`${news}`}</main>;
 }
+
+export default Home;
