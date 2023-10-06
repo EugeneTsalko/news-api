@@ -9,7 +9,9 @@
   },
   "rules": {
     "@typescript-eslint/no-explicit-any": 2,
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "consistent-return": "off",
+    "no-useless-catch": "off"
   },
   "plugins": ["prettier"]
 }
