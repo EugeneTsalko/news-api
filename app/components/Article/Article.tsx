@@ -9,6 +9,7 @@ type Props = {
 
 function Article({ article }: Props) {
   const { author, urlToImage, title, description, publishedAt, url } = article;
+
   return (
     <article className={styles.article}>
       {urlToImage && <img src={urlToImage} alt={title} />}

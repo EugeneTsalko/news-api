@@ -2,7 +2,6 @@
 @use '@/styles/mixins.scss' as mix;
 
 .header {
-  border: 1px solid green;
   @include mix.flex(center, center, column);
   gap: var.$spacing-l;
   padding: var.$spacing-l 0;

@@ -9,7 +9,6 @@ function Header() {
       <Link href="/">
         <h1>NEWS</h1>
       </Link>
-
       <SearchBox />
     </header>
   );

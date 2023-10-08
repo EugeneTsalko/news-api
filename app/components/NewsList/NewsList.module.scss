@@ -1,7 +1,6 @@
 @use '@/styles/variables.scss' as var;
 
 .newsList {
-  border: 1px solid aqua;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var.$spacing-l;
