@@ -17,7 +17,7 @@ function SearchBox() {
     <form className={styles.searchBox} onSubmit={handleSearch}>
       <input type="text" placeholder="Search keywords..." value={input} onChange={(e) => setInput(e.target.value)} />
       <button type="submit" disabled={!input}>
-        Search
+        <img src="/Search.svg" alt="search" />
       </button>
     </form>
   );

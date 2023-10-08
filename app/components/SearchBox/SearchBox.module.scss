@@ -1,11 +1,29 @@
+@use '@/styles/variables.scss' as var;
+
 .searchBox {
-  border: 1px solid blue;
-  // align-self: flex-end;
-  max-width: 40%;
-  width: 100%;
   display: flex;
+  max-width: 60%;
+  width: 100%;
+  padding: var.$spacing-m;
+  border: 1px solid var.$color-500-neutral;
+  border-radius: var.$border-radius;
 
   input {
+    border: none;
     flex: 1;
+    font-size: 1.5rem;
+  }
+
+  button {
+    padding: var.$spacing-xs;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+@media (width <= 760px) {
+  .searchBox {
+    max-width: 80%;
   }
 }
