@@ -6,3 +6,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var.$spacing-l;
 }
+
+@media (width <= 1280) {
+}
