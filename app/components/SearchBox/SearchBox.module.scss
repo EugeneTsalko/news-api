@@ -27,3 +27,13 @@
     max-width: 80%;
   }
 }
+
+@media (width <= 460px) {
+  .searchBox {
+    max-width: 60%;
+
+    input {
+      width: 100%;
+    }
+  }
+}

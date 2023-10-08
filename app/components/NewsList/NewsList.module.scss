@@ -7,5 +7,14 @@
   gap: var.$spacing-l;
 }
 
-@media (width <= 1280) {
+@media (width <= 880px) {
+  .newsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 625px) {
+  .newsList {
+    grid-template-columns: 1fr;
+  }
 }

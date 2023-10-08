@@ -53,3 +53,31 @@
     }
   }
 }
+
+@media (width <= 1080px) {
+  .article {
+    height: 45vh;
+
+    .articleTitle,
+    .articleDescr {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+  }
+}
+
+@media (width <= 625px) {
+  .article {
+    height: unset;
+
+    .articleTitle,
+    .articleDescr {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  }
+}

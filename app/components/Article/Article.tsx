@@ -13,7 +13,7 @@ function Article({ article }: Props) {
     <article className={styles.article}>
       {urlToImage && <img src={urlToImage} alt={title} />}
       <div className={styles.info}>
-        <h2>{article.title}</h2>
+        <h2 className={styles.articleTitle}>{article.title}</h2>
         <p className={styles.articleDescr}>{description}</p>
         <p className={styles.articleAuthor}>
           {author && author} - <span>{new Date(publishedAt).toLocaleString()}</span>
