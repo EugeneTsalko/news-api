@@ -1,15 +1,10 @@
 import React from 'react';
 import styles from '@/page.module.scss';
-import getNews from './utils/getNews';
-import { NewsResponse } from './models/types';
-import NewsList from './components/NewsList/NewsList';
 
-async function Home() {
-  const news: NewsResponse = await getNews('test');
-
+function Home() {
   return (
     <main className={styles.main}>
-      <NewsList news={news.articles} />
+      <h2>Hello. Please, use the search to read news.</h2>
     </main>
   );
 }
