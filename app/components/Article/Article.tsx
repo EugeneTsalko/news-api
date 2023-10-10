@@ -9,6 +9,7 @@ type Props = {
 
 function Article({ article }: Props) {
   const { author, urlToImage, title, description, publishedAt, url } = article;
+  const humanDate = new Date(publishedAt).toLocaleString();
 
   return (
     <article className={styles.article}>
@@ -17,7 +18,7 @@ function Article({ article }: Props) {
         <h2 className={styles.articleTitle}>{article.title}</h2>
         <p className={styles.article__desription}>{description}</p>
         <p className={styles.article__author}>
-          {author && author} - <span>{new Date(publishedAt).toLocaleString()}</span>
+          {author && author} - <span>{humanDate}</span>
         </p>
       </div>
       <Link href={url} target="_blank" className={styles.article__readMore}>
