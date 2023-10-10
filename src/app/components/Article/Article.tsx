@@ -1,6 +1,6 @@
 import React from 'react';
-import { News } from '@/models/types';
 import Link from 'next/link';
+import { News } from '@/models/types';
 import styles from './Article.module.scss';
 
 type Props = {
