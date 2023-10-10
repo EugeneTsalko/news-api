@@ -13,6 +13,10 @@
     border: none;
     flex: 1;
     font-size: 1.5rem;
+
+    @media (width <= 460px) {
+      width: 100%;
+    }
   }
 
   button {
@@ -20,21 +24,21 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-  }
-}
 
-@media (width <= 760px) {
-  .searchBox {
+    &:disabled {
+      cursor: not-allowed;
+
+      img {
+        filter: invert(92%) sepia(7%) saturate(39%) hue-rotate(227deg) brightness(87%) contrast(87%);
+      }
+    }
+  }
+
+  @media (width <= 760px) {
     max-width: 80%;
   }
-}
 
-@media (width <= 460px) {
-  .searchBox {
+  @media (width <= 460px) {
     max-width: 60%;
-
-    input {
-      width: 100%;
-    }
   }
 }
