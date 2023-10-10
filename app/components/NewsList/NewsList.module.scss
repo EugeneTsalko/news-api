@@ -4,16 +4,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: $spacing-l;
-}
 
-@media (width <= 880px) {
-  .newsList {
+  @media (width <= 880px) {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (width <= 625px) {
-  .newsList {
+  @media (width <= 625px) {
     grid-template-columns: 1fr;
   }
 }
