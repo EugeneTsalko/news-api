@@ -2,14 +2,13 @@ import React from 'react';
 import styles from '@/page.module.scss';
 import NewsList from '@/components/NewsList/NewsList';
 import getNews from '@/utils/getNews';
-import { NewsResponse } from '@/models/types';
 
 type Props = {
   searchParams: { q: string };
 };
 
 async function SearchPage({ searchParams }: Props) {
-  const news: NewsResponse = await getNews(searchParams.q);
+  const news = await getNews(searchParams.q);
 
   return (
     <main className={styles.main}>
