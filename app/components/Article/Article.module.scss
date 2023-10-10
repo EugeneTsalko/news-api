@@ -1,25 +1,26 @@
-@use '@/styles/variables.scss' as var;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/colors.scss' as *;
 
 .article {
   display: flex;
   flex-direction: column;
-  border: 1px solid var.$color-700-red;
-  border-radius: var.$border-radius;
+  border: 1px solid $color-700-red;
+  border-radius: $border-radius;
   height: 50vh;
 
   img {
     height: 14rem;
     width: 100%;
     object-fit: cover;
-    border-top-right-radius: var.$border-radius;
-    border-top-left-radius: var.$border-radius;
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
   }
 
   .info {
     display: flex;
     flex-direction: column;
-    gap: var.$spacing-s;
-    padding: var.$spacing-s;
+    gap: $spacing-s;
+    padding: $spacing-s;
     height: -webkit-fill-available;
   }
 
@@ -33,23 +34,23 @@
   .articleAuthor {
     align-self: flex-end;
     font-style: italic;
-    color: var.$color-700-neutral;
+    color: $color-700-neutral;
   }
 
   .readMore {
     display: block;
     text-align: center;
-    background-color: var.$color-700-red;
-    color: var.$color-white;
+    background-color: $color-700-red;
+    color: $color-white;
     font-size: larger;
     font-weight: 700;
-    padding: var.$spacing-xs;
-    transition: var.$transition;
-    border-bottom-right-radius: var.$border-radius;
-    border-bottom-left-radius: var.$border-radius;
+    padding: $spacing-xs;
+    transition: $transition;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
 
     &:hover {
-      background-color: red;
+      background-color: $color-900-red;
     }
   }
 }

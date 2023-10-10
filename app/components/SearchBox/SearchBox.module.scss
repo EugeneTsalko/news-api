@@ -1,12 +1,13 @@
-@use '@/styles/variables.scss' as var;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/colors.scss' as *;
 
 .searchBox {
   display: flex;
   max-width: 60%;
   width: 100%;
-  padding: var.$spacing-m;
-  border: 1px solid var.$color-500-neutral;
-  border-radius: var.$border-radius;
+  padding: $spacing-m;
+  border: 1px solid $color-500-neutral;
+  border-radius: $border-radius;
 
   input {
     border: none;
@@ -15,7 +16,7 @@
   }
 
   button {
-    padding: var.$spacing-xs;
+    padding: $spacing-xs;
     display: flex;
     align-items: center;
     cursor: pointer;

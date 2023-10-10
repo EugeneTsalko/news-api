@@ -1,9 +1,9 @@
-@use '@/styles/variables.scss' as var;
+@use '@/styles/variables.scss' as *;
 
 .newsList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var.$spacing-l;
+  gap: $spacing-l;
 }
 
 @media (width <= 880px) {

@@ -1,12 +1,12 @@
-@use './styles/variables.scss' as var;
+@use './styles/variables.scss' as *;
 
 .main {
   flex: 1 1 auto;
-  max-width: var.$max-width-main;
+  max-width: $max-width-main;
   width: 100%;
-  padding: var.$spacing-xl;
+  padding: $spacing-xl;
 
   h2 {
-    margin-bottom: var.$spacing-m;
+    margin-bottom: $spacing-m;
   }
 }
