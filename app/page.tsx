@@ -1,10 +1,36 @@
-import React from 'react';
-import styles from '@/page.module.scss';
+'use client';
 
-function Home() {
+import React, { useEffect, useState } from 'react';
+import styles from '@/page.module.scss';
+import NewsList from './components/NewsList/NewsList';
+import getNews from './utils/getNews';
+import { NewsResponse } from './models/types';
+
+type Props = {
+  searchParams: { q: string };
+};
+
+function Home({ searchParams }: Props) {
+  const [news, setNews] = useState<NewsResponse | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      if (searchParams.q) {
+        setNews(await getNews(searchParams.q));
+      }
+    })();
+  }, [searchParams.q]);
+
   return (
     <main className={styles.main}>
-      <h2>Hello. Please, use the search to read news.</h2>
+      {news ? (
+        <>
+          <h2>Search results for: {searchParams.q}</h2>
+          <NewsList news={news.articles} />
+        </>
+      ) : (
+        <h2>Hello. Please, use the search to read news.</h2>
+      )}
     </main>
   );
 }

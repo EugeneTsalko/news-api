@@ -10,7 +10,7 @@ function SearchBox() {
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push(`/search?q=${input}`);
+    router.push(`?q=${input}`);
   };
 
   return (
