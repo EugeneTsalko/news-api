@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Header from './components/Header/Header';
 import '@/styles/common.scss';
 
@@ -7,7 +7,7 @@ export const metadata = {
   description: 'News application',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
