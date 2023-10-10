@@ -13,15 +13,15 @@ function Article({ article }: Props) {
   return (
     <article className={styles.article}>
       {urlToImage && <img src={urlToImage} alt={title} />}
-      <div className={styles.info}>
+      <div className={styles.article__info}>
         <h2 className={styles.articleTitle}>{article.title}</h2>
-        <p className={styles.articleDescr}>{description}</p>
-        <p className={styles.articleAuthor}>
+        <p className={styles.article__desription}>{description}</p>
+        <p className={styles.article__author}>
           {author && author} - <span>{new Date(publishedAt).toLocaleString()}</span>
         </p>
       </div>
-      <Link href={url} target="_blank" className={styles.readMore}>
-        <span>READ MORE</span>
+      <Link href={url} target="_blank" className={styles.article__readMore}>
+        READ MORE
       </Link>
     </article>
   );

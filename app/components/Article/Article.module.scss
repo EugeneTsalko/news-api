@@ -16,7 +16,7 @@
     border-top-left-radius: $border-radius;
   }
 
-  .info {
+  &__info {
     display: flex;
     flex-direction: column;
     gap: $spacing-s;
@@ -24,20 +24,20 @@
     height: -webkit-fill-available;
   }
 
-  .articleDescr {
+  &__desription {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
 
-  .articleAuthor {
+  &__author {
     align-self: flex-end;
     font-style: italic;
     color: $color-700-neutral;
   }
 
-  .readMore {
+  &__readMore {
     display: block;
     text-align: center;
     background-color: $color-700-red;
