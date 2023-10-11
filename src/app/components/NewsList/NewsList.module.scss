@@ -1,15 +1,16 @@
 @use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .newsList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: $spacing-l;
 
-  @media (width <= 880px) {
+  @include for-tablet {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (width <= 625px) {
+  @include for-phone {
     grid-template-columns: 1fr;
   }
 }

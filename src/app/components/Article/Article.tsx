@@ -13,17 +13,19 @@ function Article({ article }: Props) {
 
   return (
     <article className={styles.article}>
-      {urlToImage && <img src={urlToImage} alt={title} />}
-      <div className={styles.article__info}>
-        <h2 className={styles.articleTitle}>{article.title}</h2>
-        <p className={styles.article__desription}>{description}</p>
-        <p className={styles.article__author}>
-          {author && author} - <span>{humanDate}</span>
-        </p>
+      <div className={styles.article__content}>
+        {urlToImage && <img src={urlToImage} alt={title} />}
+        <div className={styles.article__info}>
+          <h2 className={styles.articleTitle}>{article.title}</h2>
+          <p className={styles.article__desription}>{description}</p>
+          <p className={styles.article__author}>
+            {author && author} - <span>{humanDate}</span>
+          </p>
+        </div>
+        <Link href={url} target="_blank" className={styles.article__readMore}>
+          READ MORE
+        </Link>
       </div>
-      <Link href={url} target="_blank" className={styles.article__readMore}>
-        READ MORE
-      </Link>
     </article>
   );
 }

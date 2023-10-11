@@ -1,5 +1,6 @@
 @use '@/styles/variables.scss' as *;
 @use '@/styles/colors.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .searchBox {
   display: flex;
@@ -9,12 +10,16 @@
   border: 1px solid $color-500-neutral;
   border-radius: $border-radius;
 
+  @include for-tablet {
+    max-width: 80%;
+  }
+
   input {
     border: none;
     flex: 1;
     font-size: 1.5rem;
 
-    @media (width <= 460px) {
+    @include for-phone {
       width: 100%;
     }
   }
@@ -32,13 +37,5 @@
         filter: invert(92%) sepia(7%) saturate(39%) hue-rotate(227deg) brightness(87%) contrast(87%);
       }
     }
-  }
-
-  @media (width <= 760px) {
-    max-width: 80%;
-  }
-
-  @media (width <= 460px) {
-    max-width: 60%;
   }
 }

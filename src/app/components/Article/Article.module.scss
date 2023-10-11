@@ -6,7 +6,12 @@
   flex-direction: column;
   border: 1px solid $color-700-red;
   border-radius: $border-radius;
-  height: 50dvh;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
   img {
     height: 14rem;
@@ -17,18 +22,15 @@
   }
 
   &__info {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: $spacing-s;
     padding: $spacing-s;
-    height: -webkit-fill-available;
   }
 
   &__desription {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    flex: 1;
   }
 
   &__author {
@@ -51,34 +53,6 @@
 
     &:hover {
       background-color: $color-900-red;
-    }
-  }
-}
-
-@media (width <= 1080px) {
-  .article {
-    height: 45dvh;
-
-    .articleTitle,
-    .articleDescr {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-  }
-}
-
-@media (width <= 625px) {
-  .article {
-    height: unset;
-
-    .articleTitle,
-    .articleDescr {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
     }
   }
 }
