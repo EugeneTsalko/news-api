@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Toaster } from 'react-hot-toast';
 import Header from './components/Header/Header';
 import '@/styles/common.scss';
 
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <Header />
         {children}
+        <Toaster />
       </body>
     </html>
   );

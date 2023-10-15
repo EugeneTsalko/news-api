@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from '@/page.module.scss';
+import toast from 'react-hot-toast';
 import NewsList from './components/NewsList/NewsList';
 import getNews from './utils/getNews';
 import { NewsWithId } from './models/types';
@@ -16,7 +17,13 @@ function Home({ searchParams }: Props) {
   useEffect(() => {
     (async () => {
       if (searchParams.q) {
-        setNews(await getNews(searchParams.q));
+        const response = await getNews(searchParams.q);
+
+        if (response.status === 'error') {
+          toast.error(response.message, { id: 'error' });
+        }
+
+        setNews(response.data);
       }
     })();
   }, [searchParams.q]);
