@@ -4,14 +4,14 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/page.module.scss';
 import NewsList from './components/NewsList/NewsList';
 import getNews from './utils/getNews';
-import { NewsResponse } from './models/types';
+import { NewsWithId } from './models/types';
 
 type Props = {
   searchParams: { q: string };
 };
 
 function Home({ searchParams }: Props) {
-  const [news, setNews] = useState<NewsResponse | null>(null);
+  const [news, setNews] = useState<NewsWithId[] | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -26,7 +26,7 @@ function Home({ searchParams }: Props) {
       {news ? (
         <>
           <h2>Search results for: {searchParams.q}</h2>
-          <NewsList news={news.articles} />
+          <NewsList news={news} />
         </>
       ) : (
         <h2>Hello. Please, use the search to read news.</h2>

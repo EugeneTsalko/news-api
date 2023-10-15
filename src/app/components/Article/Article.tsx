@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { News } from '@/models/types';
+import { NewsWithId } from '@/models/types';
 import styles from './Article.module.scss';
 
 type Props = {
-  article: News;
+  article: NewsWithId;
 };
 
 function Article({ article }: Props) {
