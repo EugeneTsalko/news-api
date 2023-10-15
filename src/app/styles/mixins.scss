@@ -1,17 +1,13 @@
-@mixin for-desktop {
-  @media (width > 1200px) {
+@use './variables.scss' as *;
+
+@mixin from-desktop {
+  @media (width >= $breakpoint-tablet) {
     @content;
   }
 }
 
-@mixin for-tablet {
-  @media (width <= 900px) {
-    @content;
-  }
-}
-
-@mixin for-phone {
-  @media (width <= 599px) {
+@mixin from-tablet {
+  @media (width >= $breakpoint-phone) {
     @content;
   }
 }

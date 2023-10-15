@@ -4,24 +4,21 @@
 
 .searchBox {
   display: flex;
-  max-width: 60%;
+  max-width: 80%;
   width: 100%;
   padding: $spacing-m;
   border: 1px solid $color-500-neutral;
   border-radius: $border-radius;
 
-  @include for-tablet {
-    max-width: 80%;
+  @include from-desktop {
+    max-width: 60%;
   }
 
   input {
     border: none;
     flex: 1;
     font-size: 1.5rem;
-
-    @include for-phone {
-      width: 100%;
-    }
+    width: 100%;
   }
 
   button {

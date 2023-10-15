@@ -3,14 +3,14 @@
 
 .newsList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: $spacing-l;
 
-  @include for-tablet {
+  @include from-tablet {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include for-phone {
-    grid-template-columns: 1fr;
+  @include from-desktop {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
