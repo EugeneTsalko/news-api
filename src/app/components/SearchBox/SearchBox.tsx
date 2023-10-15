@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import styles from './SearchBox.module.scss';
 
 function SearchBox() {
@@ -17,7 +18,7 @@ function SearchBox() {
     <form className={styles.searchBox} onSubmit={handleSearch}>
       <input type="text" placeholder="Search keywords..." value={input} onChange={(e) => setInput(e.target.value)} />
       <button type="submit" disabled={!input}>
-        <img src="/Search.svg" alt="search" />
+        <Image src="/Search.svg" width={24} height={24} alt="search" />
       </button>
     </form>
   );
