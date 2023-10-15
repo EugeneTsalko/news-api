@@ -22,7 +22,12 @@ function SearchBox() {
   }, [debouncedInput, handleSearch]);
 
   return (
-    <form className={styles.searchBox}>
+    <form
+      className={styles.searchBox}
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <input type="text" placeholder="Search keywords..." value={input} onChange={(e) => setInput(e.target.value)} />
       <span className={!input ? styles.searchBox__disabled : ''}>
         <Image src="/Search.svg" width={24} height={24} alt="search" />
