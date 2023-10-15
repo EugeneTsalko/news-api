@@ -11,7 +11,7 @@ function NewsList({ news }: Props) {
   return (
     <div className={styles.newsList}>
       {news.map((article) => (
-        <Article article={article} key={crypto.randomUUID()} />
+        <Article article={article} key={article.id} />
       ))}
     </div>
   );
