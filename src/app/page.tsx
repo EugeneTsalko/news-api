@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/page.module.scss';
 import toast from 'react-hot-toast';
 import NewsList from './components/NewsList/NewsList';
+import Spinner from './components/Spinner/Spinner';
 import getNews from './utils/getNews';
 import { NewsWithId } from './models/types';
 
@@ -13,9 +14,12 @@ type Props = {
 
 function Home({ searchParams }: Props) {
   const [news, setNews] = useState<NewsWithId[] | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
+
       if (searchParams.q) {
         const response = await getNews(searchParams.q);
 
@@ -25,18 +29,22 @@ function Home({ searchParams }: Props) {
 
         setNews(response.data);
       }
+
+      setLoading(false);
     })();
   }, [searchParams.q]);
 
   return (
     <main className={styles.main}>
-      {news ? (
-        <>
-          <h2>Search results for: {searchParams.q}</h2>
-          <NewsList news={news} />
-        </>
+      {loading ? (
+        <Spinner />
       ) : (
-        <h2>Hello. Please, use the search to read news.</h2>
+        news && (
+          <>
+            <h2>Search results for: {searchParams.q}</h2>
+            <NewsList news={news} />
+          </>
+        )
       )}
     </main>
   );
