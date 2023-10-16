@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 import { NewsWithId } from '@/models/types';
+import getHumanDate from '@/utils/getHumanDate';
 import styles from './Article.module.scss';
 import ReadMoreButton from '../ReadMoreButton/ReadMoreButton';
 
@@ -9,8 +9,8 @@ type Props = {
 };
 
 function Article({ article }: Props) {
-  const { author, urlToImage, title, description, publishedAt, url } = article;
-  const humanDate = new Date(publishedAt).toLocaleString();
+  const { author, urlToImage, title, description, publishedAt } = article;
+  const humanDate = getHumanDate(publishedAt);
 
   return (
     <article className={styles.article}>
@@ -23,9 +23,6 @@ function Article({ article }: Props) {
             {author && author} - {humanDate}
           </p>
         </div>
-        {/* <Link href={url} target="_blank" className={styles.article__readMore}>
-          READ MORE
-        </Link> */}
         <ReadMoreButton article={article} />
       </div>
     </article>

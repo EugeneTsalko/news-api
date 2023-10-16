@@ -11,7 +11,7 @@ function ReadMoreButton({ article }: Props) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/article:id=${article.id}`);
+    router.push(`/article?id=${article.id}`);
   };
 
   return (
