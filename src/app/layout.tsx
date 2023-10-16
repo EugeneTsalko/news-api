@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 import Header from './components/Header/Header';
 import '@/styles/common.scss';
+import Provider from './context';
 
 export const metadata = {
   title: 'News by EugeneTsalko',
@@ -11,11 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-        {children}
-        <Toaster />
-      </body>
+      <Provider>
+        <body>
+          <Header />
+          {children}
+          <Toaster />
+        </body>
+      </Provider>
     </html>
   );
 }

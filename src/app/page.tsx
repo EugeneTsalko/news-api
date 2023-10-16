@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import NewsList from './components/NewsList/NewsList';
 import Spinner from './components/Spinner/Spinner';
 import getNews from './utils/getNews';
+import { useNewsContext } from './context';
 import { NewsWithId } from './models/types';
 
 type Props = {
@@ -15,6 +16,7 @@ type Props = {
 function Home({ searchParams }: Props) {
   const [news, setNews] = useState<NewsWithId[] | null>(null);
   const [loading, setLoading] = useState(false);
+  const { setContext } = useNewsContext();
 
   useEffect(() => {
     (async () => {
@@ -33,6 +35,10 @@ function Home({ searchParams }: Props) {
       setLoading(false);
     })();
   }, [searchParams.q]);
+
+  useEffect(() => {
+    setContext(news as NewsWithId[]);
+  }, [news, setContext]);
 
   return (
     <main className={styles.main}>
