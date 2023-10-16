@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { NewsWithId } from '@/models/types';
 import styles from './Article.module.scss';
+import ReadMoreButton from '../ReadMoreButton/ReadMoreButton';
 
 type Props = {
   article: NewsWithId;
@@ -22,9 +23,10 @@ function Article({ article }: Props) {
             {author && author} - {humanDate}
           </p>
         </div>
-        <Link href={url} target="_blank" className={styles.article__readMore}>
+        {/* <Link href={url} target="_blank" className={styles.article__readMore}>
           READ MORE
-        </Link>
+        </Link> */}
+        <ReadMoreButton article={article} />
       </div>
     </article>
   );

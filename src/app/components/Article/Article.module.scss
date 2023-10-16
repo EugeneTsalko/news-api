@@ -38,21 +38,4 @@
     font-style: italic;
     color: $color-700-neutral;
   }
-
-  &__readMore {
-    display: block;
-    text-align: center;
-    background-color: $color-700-red;
-    color: $color-white;
-    font-size: larger;
-    font-weight: 700;
-    padding: $spacing-xs;
-    transition: $transition;
-    border-bottom-right-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-
-    &:hover {
-      background-color: $color-900-red;
-    }
-  }
 }
