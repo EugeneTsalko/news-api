@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useNewsContext } from '@/context';
-import { NewsWithId } from '@/models/types';
+import { useNewsContext } from '@/context/news.context';
 import getHumanDate from '@/utils/getHumanDate';
 import styles from './ArticlePage.module.scss';
 
@@ -11,8 +10,15 @@ type Props = {
 };
 
 function ArticlePage({ searchParams }: Props) {
-  const { context } = useNewsContext();
-  const article = context?.find((el) => el.id === searchParams.id) as NewsWithId;
+  const { news } = useNewsContext();
+  let article = news.find((el) => el.id === searchParams.id)!;
+
+  if (article) {
+    localStorage.setItem('article', JSON.stringify(article));
+  } else {
+    article = JSON.parse(localStorage.getItem('article')!);
+  }
+
   const humanDate = getHumanDate(article.publishedAt);
 
   return (
@@ -20,9 +26,9 @@ function ArticlePage({ searchParams }: Props) {
       {article.urlToImage && <img src={article.urlToImage} alt={article.title} className={styles.articlePage__image} />}
       <h2>{article.title}</h2>
       <div className={styles.articlePage__info}>
-        {article.author && <span>By: {article.author}</span>}
-        {article.source.name && <span>Source: {article.source.name}</span>}
-        <span>Date: {humanDate}</span>
+        {article.author && <p>By: {article.author}</p>}
+        {article.source.name && <p>Source: {article.source.name}</p>}
+        <p>Date: {humanDate}</p>
       </div>
       <p className={styles.articlePage__content}>{article.content}</p>
     </article>

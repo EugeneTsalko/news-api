@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
+import Provider from '@/context/news.context';
 import Header from './components/Header/Header';
 import '@/styles/common.scss';
-import Provider from './context';
 
 export const metadata = {
   title: 'News by EugeneTsalko',
