@@ -21,18 +21,9 @@
     width: 100%;
   }
 
-  button {
-    padding: $spacing-xs;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    &:disabled {
-      cursor: not-allowed;
-
-      img {
-        filter: invert(92%) sepia(7%) saturate(39%) hue-rotate(227deg) brightness(87%) contrast(87%);
-      }
+  &__disabled {
+    img {
+      filter: invert(92%) sepia(7%) saturate(39%) hue-rotate(227deg) brightness(87%) contrast(87%);
     }
   }
 }
