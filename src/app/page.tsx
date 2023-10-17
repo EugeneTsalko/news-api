@@ -16,15 +16,15 @@ function Home({ searchParams }: Props) {
 
   useEffect(() => {
     (async () => {
-      if (searchParams.q) {
-        const response = await getNews(searchParams.q);
+      if (!searchParams.q) return;
 
-        if (response.status === 'error') {
-          toast.error(response.message, { id: 'error' });
-        }
+      const response = await getNews(searchParams.q);
 
-        setNews(response.data);
+      if (response.status === 'error') {
+        toast.error(response.message, { id: 'error' });
       }
+
+      setNews(response.data);
     })();
   }, [searchParams.q]);
 
