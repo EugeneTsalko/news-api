@@ -8,11 +8,6 @@ type TNewsContext = {
   setNews(news: NewsWithId[]): void;
 };
 
-// const initialNewsState = {
-//   context: [],
-//   setContext: () => {},
-// };
-
 export const NewsContext = createContext<TNewsContext>({
   news: [],
   setNews: () => {},
