@@ -23,7 +23,7 @@ function Article({ article }: Props) {
             {author && author} - {humanDate}
           </p>
         </div>
-        <ReadMoreButton article={article} />
+        <ReadMoreButton articleId={article.id} />
       </div>
     </article>
   );

@@ -1,17 +1,16 @@
 import React from 'react';
-import { NewsWithId } from '@/models/types';
 import { useRouter } from 'next/navigation';
 import styles from './ReadMoreButton.module.scss';
 
 type Props = {
-  article: NewsWithId;
+  articleId: string;
 };
 
-function ReadMoreButton({ article }: Props) {
+function ReadMoreButton({ articleId }: Props) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/article?id=${article.id}`);
+    router.push(`/article?id=${articleId}`);
   };
 
   return (
