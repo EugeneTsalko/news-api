@@ -12,7 +12,7 @@ type Props = {
 };
 
 function Home({ searchParams }: Props) {
-  const [news, setNews] = useState<NewsWithId[] | null>(null);
+  const [news, setNews] = useState<NewsWithId[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -30,7 +30,7 @@ function Home({ searchParams }: Props) {
 
   return (
     <main className={styles.main}>
-      {news ? (
+      {news.length ? (
         <>
           <h2>Search results for: {searchParams.q}</h2>
           <NewsList news={news} />
