@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
-import Provider from '@/context/news.context';
+import NewsProvider from '@/context/news.context';
 import Header from './components/Header/Header';
 import '@/styles/common.scss';
 
@@ -12,13 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <Provider>
+      <NewsProvider>
         <body>
           <Header />
           {children}
           <Toaster />
         </body>
-      </Provider>
+      </NewsProvider>
     </html>
   );
 }

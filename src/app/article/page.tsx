@@ -3,6 +3,7 @@
 import React from 'react';
 import { useNewsContext } from '@/context/news.context';
 import getHumanDate from '@/utils/getHumanDate';
+import { redirect } from 'next/navigation';
 import styles from './ArticlePage.module.scss';
 
 type Props = {
@@ -11,12 +12,10 @@ type Props = {
 
 function ArticlePage({ searchParams }: Props) {
   const { news } = useNewsContext();
-  let article = news.find((el) => el.id === searchParams.id)!;
+  const article = news.find((el) => el.id === searchParams.id);
 
-  if (article) {
-    localStorage.setItem('article', JSON.stringify(article));
-  } else {
-    article = JSON.parse(localStorage.getItem('article')!);
+  if (!article) {
+    redirect('/');
   }
 
   const humanDate = getHumanDate(article.publishedAt);

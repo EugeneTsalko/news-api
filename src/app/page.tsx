@@ -32,7 +32,7 @@ function Home({ searchParams }: Props) {
 
       setLoading(false);
     })();
-  }, [searchParams.q, setNews]);
+  }, [searchParams, setNews]);
 
   return (
     <main className={styles.main}>
