@@ -1,5 +1,5 @@
 import { schemaNewsResponse } from '@/models/schemes';
-import { NewsData, UserMessage } from '@/models/types';
+import { NewsData, USER_MESSAGE } from '@/models/types';
 import axios from 'axios';
 import { z } from 'zod';
 
@@ -11,15 +11,15 @@ const getNews = async (keyword: string): Promise<NewsData> => {
 
     const news = schemaNewsResponse.parse(response.data).articles.map((el, i) => ({ ...el, id: `${i + 1}` }));
 
-    return { status: 'ok', message: UserMessage.succes, data: news };
+    return { status: 'ok', message: USER_MESSAGE.success, data: news };
   } catch (e) {
-    const result: NewsData = { status: 'error', message: UserMessage.smthWrong, data: [] };
+    const result: NewsData = { status: 'error', message: USER_MESSAGE.smthWrong, data: [] };
 
     if (axios.isAxiosError(e)) {
-      result.message = UserMessage.cantGet;
+      result.message = USER_MESSAGE.cantGet;
     }
     if (e instanceof z.ZodError) {
-      result.message = UserMessage.wrongSchema;
+      result.message = USER_MESSAGE.wrongSchema;
     }
 
     return result;
