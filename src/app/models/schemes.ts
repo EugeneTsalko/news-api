@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const schemaNews = z.object({
-  source: z.object({ id: z.union([z.string(), z.null()]) }),
+  source: z.object({ id: z.union([z.string(), z.null()]), name: z.string() }),
   author: z.union([z.string(), z.null()]),
   title: z.string(),
   description: z.string(),

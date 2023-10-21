@@ -3,18 +3,18 @@
 import React, { useEffect, useState } from 'react';
 import styles from '@/page.module.scss';
 import toast from 'react-hot-toast';
+import { useNewsContext } from '@/context/news.context';
 import NewsList from './components/NewsList/NewsList';
 import Spinner from './components/Spinner/Spinner';
 import getNews from './utils/getNews';
-import { NewsWithId } from './models/types';
 
 type Props = {
   searchParams: { q: string };
 };
 
 function Home({ searchParams }: Props) {
-  const [news, setNews] = useState<NewsWithId[] | null>(null);
   const [loading, setLoading] = useState(false);
+  const { news, setNews } = useNewsContext();
 
   useEffect(() => {
     (async () => {
@@ -32,14 +32,14 @@ function Home({ searchParams }: Props) {
 
       setLoading(false);
     })();
-  }, [searchParams.q]);
+  }, [searchParams, setNews]);
 
   return (
     <main className={styles.main}>
       {loading ? (
         <Spinner />
       ) : (
-        news && (
+        !!news.length && (
           <>
             <h2>Search results for: {searchParams.q}</h2>
             <NewsList news={news} />
