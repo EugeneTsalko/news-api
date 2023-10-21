@@ -24,11 +24,11 @@ function ArticlePage({ searchParams }: Props) {
     <article className={styles.articlePage}>
       {article.urlToImage && <img src={article.urlToImage} alt={article.title} className={styles.articlePage__image} />}
       <h2>{article.title}</h2>
-      <div className={styles.articlePage__info}>
-        {article.author && <p>By: {article.author}</p>}
-        {article.source.name && <p>Source: {article.source.name}</p>}
-        <p>Date: {humanDate}</p>
-      </div>
+      <p className={styles.articlePage__info}>
+        {article.author && <span>By: {article.author}</span>}
+        {article.source.name && <span>Source: {article.source.name}</span>}
+        <span>Date: {humanDate}</span>
+      </p>
       <p className={styles.articlePage__content}>{article.content}</p>
     </article>
   );
