@@ -4,10 +4,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import useDebounce from '@/hooks/useDebounce';
+import { useLoadingContext } from '@/context/loading.context';
 import styles from './SearchBox.module.scss';
 
 function SearchBox() {
   const [input, setInput] = useState('');
+  const { loading } = useLoadingContext();
   const router = useRouter();
   const debouncedInput = useDebounce(input, 1000);
 
@@ -28,7 +30,13 @@ function SearchBox() {
         e.preventDefault();
       }}
     >
-      <input type="text" placeholder="Search keywords..." value={input} onChange={(e) => setInput(e.target.value)} />
+      <input
+        type="text"
+        placeholder="Search keywords..."
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        disabled={loading}
+      />
       <span className={!input ? styles.searchBox__disabled : ''}>
         <Image src="/Search.svg" width={24} height={24} alt="search" />
       </span>

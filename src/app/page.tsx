@@ -1,19 +1,20 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from '@/page.module.scss';
 import toast from 'react-hot-toast';
 import { useNewsContext } from '@/context/news.context';
 import NewsList from './components/NewsList/NewsList';
 import Spinner from './components/Spinner/Spinner';
 import getNews from './utils/getNews';
+import { useLoadingContext } from './context/loading.context';
 
 type Props = {
   searchParams: { q: string };
 };
 
 function Home({ searchParams }: Props) {
-  const [loading, setLoading] = useState(false);
+  const { loading, setLoading } = useLoadingContext();
   const { news, setNews } = useNewsContext();
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function Home({ searchParams }: Props) {
 
       setLoading(false);
     })();
-  }, [searchParams, setNews]);
+  }, [searchParams, setLoading, setNews]);
 
   return (
     <main className={styles.main}>
