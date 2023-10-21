@@ -1,30 +1,28 @@
 import { schemaNewsResponse } from '@/models/schemes';
-import { NewsResponse, NewsWithId } from '@/models/types';
+import { NewsData, USER_MESSAGE } from '@/models/types';
 import axios from 'axios';
 import { z } from 'zod';
 
-const getNews = async (keyword: string) => {
+const getNews = async (keyword: string): Promise<NewsData> => {
   try {
-    const response = await axios.get<NewsResponse>(
+    const response = await axios.get(
       `${process.env.NEXT_PUBLIC_URL}/everything?q=${keyword}&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`,
     );
 
-    const newsWithId = schemaNewsResponse
-      .parse(response.data)
-      .articles.map((el, i) => ({ ...el, id: `${i + 1}` })) as NewsWithId[];
+    const news = schemaNewsResponse.parse(response.data).articles.map((el, i) => ({ ...el, id: `${i + 1}` }));
 
-    return { status: 'ok', message: 'Success!', data: newsWithId };
+    return { status: 'ok', message: USER_MESSAGE.success, data: news };
   } catch (e) {
-    let message = 'Something went wrong...';
+    const result: NewsData = { status: 'error', message: USER_MESSAGE.smthWrong, data: [] };
 
     if (axios.isAxiosError(e)) {
-      message = 'Oops! Can`t get news...';
+      result.message = USER_MESSAGE.cantGet;
     }
     if (e instanceof z.ZodError) {
-      message = 'Oops! News schema is wrong...';
+      result.message = USER_MESSAGE.wrongSchema;
     }
 
-    return { status: 'error', message, data: [] };
+    return result;
   }
 };
 
