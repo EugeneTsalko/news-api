@@ -19,15 +19,18 @@ function Home({ searchParams }: Props) {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      
-      if (!searchParams.q) return;
-      
+
+      if (!searchParams.q) {
+        setLoading(false);
+        return;
+      }
+
       const response = await getNews(searchParams.q);
 
       if (response.status === 'error') {
         toast.error(response.message, { id: 'error' });
       }
-      
+
       setNews(response.data);
 
       setLoading(false);
