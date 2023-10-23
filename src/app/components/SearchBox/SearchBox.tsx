@@ -37,7 +37,7 @@ function SearchBox() {
         onChange={(e) => setInput(e.target.value)}
         disabled={loading}
       />
-      <span className={!input ? styles.searchBox__disabled : ''}>
+      <span>
         <Image src="/Search.svg" width={24} height={24} alt="search" />
       </span>
     </form>
