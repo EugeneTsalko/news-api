@@ -1,8 +1,8 @@
 import React from 'react';
 import { NewsWithId } from '@/models/types';
 import getHumanDate from '@/utils/getHumanDate';
+import Link from 'next/link';
 import styles from './Article.module.scss';
-import ReadMoreButton from '../ReadMoreButton/ReadMoreButton';
 
 type Props = {
   article: NewsWithId;
@@ -23,7 +23,9 @@ function Article({ article }: Props) {
             {author && author} - {humanDate}
           </p>
         </div>
-        <ReadMoreButton articleId={article.id} />
+        <Link className={styles.readMore} href={`/article?id=${article.id}`}>
+          Read More
+        </Link>
       </div>
     </article>
   );
