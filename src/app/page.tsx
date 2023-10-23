@@ -7,22 +7,20 @@ import { useNewsContext } from '@/context/news.context';
 import NewsList from './components/NewsList/NewsList';
 import Spinner from './components/Spinner/Spinner';
 import getNews from './utils/getNews';
-import { useLoadingContext } from './context/loading.context';
 
 type Props = {
   searchParams: { q: string };
 };
 
 function Home({ searchParams }: Props) {
-  const { loading, setLoading } = useLoadingContext();
-  const { news, setNews } = useNewsContext();
+  const { state, setState } = useNewsContext();
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
+      setState({ ...state, loading: true });
 
       if (!searchParams.q) {
-        setLoading(false);
+        setState({ ...state, loading: false });
         return;
       }
 
@@ -32,21 +30,19 @@ function Home({ searchParams }: Props) {
         toast.error(response.message, { id: 'error' });
       }
 
-      setNews(response.data);
-
-      setLoading(false);
+      setState({ loading: false, news: response.data });
     })();
-  }, [searchParams, setLoading, setNews]);
+  }, [searchParams, setState]);
 
   return (
     <main className={styles.main}>
-      {loading ? (
+      {state.loading ? (
         <Spinner />
       ) : (
-        !!news.length && (
+        !!state.news.length && (
           <>
             <h2>Search results for: {searchParams.q}</h2>
-            <NewsList news={news} />
+            <NewsList news={state.news} />
           </>
         )
       )}
