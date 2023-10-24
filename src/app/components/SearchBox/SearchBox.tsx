@@ -9,7 +9,7 @@ import styles from './SearchBox.module.scss';
 
 function SearchBox() {
   const [input, setInput] = useState('');
-  const { state } = useNewsContext();
+  const { loading } = useNewsContext();
   const router = useRouter();
   const debouncedInput = useDebounce(input, 1000);
 
@@ -35,7 +35,7 @@ function SearchBox() {
         placeholder="Search keywords..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        disabled={state.loading}
+        disabled={loading}
       />
       <span>
         <Image src="/Search.svg" width={24} height={24} alt="search" />

@@ -3,29 +3,30 @@
 import React, { ReactNode, createContext, useContext, useMemo, useState } from 'react';
 import { NewsWithId } from '@/models/types';
 
-type State = {
-  loading: boolean;
-  news: NewsWithId[];
-};
-
 type TNewsContext = {
-  state: State;
-  setState(state: State): void;
+  loading: boolean;
+  setLoading(loading: boolean): void;
+  news: NewsWithId[];
+  setNews(news: NewsWithId[]): void;
 };
 
 export const NewsContext = createContext<TNewsContext>({
-  state: {
-    loading: false,
-    news: [],
-  },
-  setState: () => {},
+  loading: false,
+  setLoading: () => {},
+  news: [],
+  setNews: () => {},
 });
 
 export const useNewsContext = () => useContext(NewsContext);
 
 function NewsProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<State>({ loading: false, news: [] });
-  const newsContextValue = useMemo(() => ({ state, setState }), [state]);
+  const [loading, setLoading] = useState(false);
+  const [news, setNews] = useState<NewsWithId[]>([]);
+
+  const newsContextValue = useMemo(
+    () => ({ loading, setLoading, news, setNews }),
+    [loading, setLoading, news, setNews],
+  );
 
   return <NewsContext.Provider value={newsContextValue}>{children}</NewsContext.Provider>;
 }
