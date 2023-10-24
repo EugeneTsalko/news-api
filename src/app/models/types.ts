@@ -24,3 +24,9 @@ export type NewsData = {
   message: UserMessage;
   data: NewsWithId[];
 };
+
+export type Selects = {
+  sortBy?: 'publishedAt' | 'popularity';
+  pageSize?: '3' | '6' | '9';
+  language?: 'en' | 'ru' | 'fr' | 'de';
+};

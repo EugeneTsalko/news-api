@@ -1,15 +1,14 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '@/page.module.scss';
 import toast from 'react-hot-toast';
 import { useNewsContext } from '@/context/news.context';
 import NewsList from './components/NewsList/NewsList';
 import Spinner from './components/Spinner/Spinner';
 import getNews from './utils/getNews';
-import { useLoadingContext } from './context/loading.context';
-import { useParametersContext } from './context/parameters.context';
-import Parameters from './components/Parameters/Parameters';
+import HomeSelectors from './components/HomeSelectors/HomeSelectors';
+import { Selects } from './models/types';
 
 type Props = {
   searchParams: { q: string };
@@ -17,7 +16,8 @@ type Props = {
 
 function Home({ searchParams }: Props) {
   const { state, setState } = useNewsContext();
-  const { selects } = useParametersContext();
+
+  const [selects, setSelects] = useState<Selects>({});
 
   useEffect(() => {
     (async () => {
@@ -40,7 +40,7 @@ function Home({ searchParams }: Props) {
 
   return (
     <main className={styles.main}>
-      <Parameters />
+      <HomeSelectors selects={selects} setSelects={setSelects} />
 
       {state.loading ? (
         <Spinner />

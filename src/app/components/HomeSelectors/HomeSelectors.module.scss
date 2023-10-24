@@ -3,8 +3,8 @@
 .parameters {
   display: flex;
   gap: $spacing-l;
-}
 
-.parameters select {
-  margin-left: $spacing-s;
+  select {
+    margin-left: $spacing-s;
+  }
 }

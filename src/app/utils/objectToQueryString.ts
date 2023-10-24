@@ -1,8 +1,11 @@
-const objectToQueryString = (obj: { [key: string]: unknown }) => {
-  const keys = Object.keys(obj);
-  const keyValuePairs = keys.map((key) => `${key}=${obj[key]}`);
+const objectToQueryString = (obj: Record<string, string>) => {
+  if (!Object.keys(obj).length) return '';
 
-  return keyValuePairs.join('&');
+  const keyValuePairs = Object.entries(obj)
+    .map((el) => el.join('='))
+    .join('&');
+
+  return `&${keyValuePairs}`;
 };
 
 export default objectToQueryString;
