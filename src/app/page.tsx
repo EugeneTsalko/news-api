@@ -13,14 +13,14 @@ type Props = {
 };
 
 function Home({ searchParams }: Props) {
-  const { state, setState } = useNewsContext();
+  const { news, loading, setNews, setLoading } = useNewsContext();
 
   useEffect(() => {
     (async () => {
-      setState({ ...state, loading: true });
+      setLoading(true);
 
       if (!searchParams.q) {
-        setState({ ...state, loading: false });
+        setLoading(false);
         return;
       }
 
@@ -30,19 +30,20 @@ function Home({ searchParams }: Props) {
         toast.error(response.message, { id: 'error' });
       }
 
-      setState({ loading: false, news: response.data });
+      setNews(response.data);
+      setLoading(false);
     })();
-  }, [searchParams, setState]);
+  }, [searchParams, setLoading, setNews]);
 
   return (
     <main className={styles.main}>
-      {state.loading ? (
+      {loading ? (
         <Spinner />
       ) : (
-        !!state.news.length && (
+        !!news.length && (
           <>
             <h2>Search results for: {searchParams.q}</h2>
-            <NewsList news={state.news} />
+            <NewsList news={news} />
           </>
         )
       )}

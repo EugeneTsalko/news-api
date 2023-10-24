@@ -11,9 +11,7 @@ type Props = {
 };
 
 function ArticlePage({ searchParams }: Props) {
-  const {
-    state: { news },
-  } = useNewsContext();
+  const { news } = useNewsContext();
   const article = news.find((el) => el.id === searchParams.id);
 
   if (!article) {
