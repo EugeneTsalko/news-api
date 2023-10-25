@@ -21,21 +21,24 @@ function Home({ searchParams }: Props) {
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
+      try {
+        setLoading(true);
 
-      if (!searchParams.q) {
+        if (!searchParams.q) {
+          setLoading(false);
+          return;
+        }
+
+        const response = await getNews(searchParams.q);
+
+        if (response.status === 'error') {
+          toast.error(response.message, { id: 'error' });
+        }
+
+        setNews(response.data);
+      } finally {
         setLoading(false);
-        return;
       }
-
-      const response = await getNews(searchParams.q, selects);
-
-      if (response.status === 'error') {
-        toast.error(response.message, { id: 'error' });
-      }
-
-      setNews(response.data);
-      setLoading(false);
     })();
   }, [searchParams, setLoading, setNews, selects]);
 
