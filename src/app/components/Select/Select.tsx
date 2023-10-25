@@ -16,8 +16,8 @@ function Select({ name, label, defaultValue, options, onChange }: Props) {
         <option hidden disabled value={defaultValue}>
           select option
         </option>
-        {options.map((option) => (
-          <option value={option} key={crypto.randomUUID()}>
+        {options.map((option, i) => (
+          <option value={option} key={i}>
             {option}
           </option>
         ))}

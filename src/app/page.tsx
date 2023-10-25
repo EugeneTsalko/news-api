@@ -37,7 +37,7 @@ function Home({ searchParams }: Props) {
       setNews(response.data);
       setLoading(false);
     })();
-  }, [searchParams, setLoading, setNews]);
+  }, [searchParams, setLoading, setNews, selects]);
 
   return (
     <main className={styles.main}>

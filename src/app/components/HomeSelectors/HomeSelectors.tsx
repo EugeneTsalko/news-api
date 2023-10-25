@@ -16,7 +16,7 @@ function HomeSelectors({ selects, setSelects }: Props) {
   };
 
   return (
-    <form className={styles.parameters}>
+    <form className={styles.homeSelectors}>
       <Select
         name="sortBy"
         label="Sort by:"
