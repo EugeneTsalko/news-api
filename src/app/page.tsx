@@ -42,10 +42,6 @@ function Home({ searchParams }: Props) {
     })();
   }, [searchParams, setLoading, setNews, selects]);
 
-  useEffect(() => {
-    console.log(selects);
-  }, [selects]);
-
   return (
     <main className={styles.main}>
       <HomeSelectors selects={selects} setSelects={setSelects} />
