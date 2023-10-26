@@ -1,0 +1,16 @@
+@use './styles/variables.scss' as *;
+
+.main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-m;
+  max-width: $max-width-main;
+  width: 100%;
+  padding: $spacing-xl;
+
+  h2 {
+    margin-bottom: $spacing-m;
+  }
+}

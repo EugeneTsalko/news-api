@@ -1,0 +1,59 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/colors.scss' as *;
+
+.article {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-700-red;
+  border-radius: $border-radius;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  img {
+    height: 14rem;
+    width: 100%;
+    object-fit: cover;
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-s;
+    padding: $spacing-s;
+  }
+
+  &__desription {
+    flex: 1;
+  }
+
+  &__author {
+    align-self: flex-end;
+    font-style: italic;
+    color: $color-700-neutral;
+  }
+
+  &__readMore {
+    display: block;
+    text-align: center;
+    background-color: $color-700-red;
+    color: $color-white;
+    font-size: larger;
+    font-weight: 700;
+    padding: $spacing-xs;
+    transition: $transition;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-900-red;
+    }
+  }
+}

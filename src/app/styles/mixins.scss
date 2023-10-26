@@ -1,0 +1,13 @@
+@use './variables.scss' as *;
+
+@mixin from-desktop {
+  @media (width >= $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin from-tablet {
+  @media (width >= $breakpoint-phone) {
+    @content;
+  }
+}

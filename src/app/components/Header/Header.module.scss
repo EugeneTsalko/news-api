@@ -1,0 +1,17 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/colors.scss' as *;
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: $spacing-l;
+  padding-top: $spacing-l;
+  max-width: $max-width-main;
+  width: 100%;
+
+  h1 {
+    color: $color-700-red;
+  }
+}

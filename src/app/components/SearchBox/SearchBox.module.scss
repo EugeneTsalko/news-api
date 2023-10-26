@@ -1,0 +1,27 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/colors.scss' as *;
+@use '@/styles/mixins.scss' as *;
+
+.searchBox {
+  display: flex;
+  max-width: 80%;
+  width: 100%;
+  padding: $spacing-m;
+  border: 1px solid $color-500-neutral;
+  border-radius: $border-radius;
+
+  @include from-desktop {
+    max-width: 60%;
+  }
+
+  &:focus-within {
+    border-color: $color-700-blue;
+  }
+
+  input {
+    border: none;
+    flex: 1;
+    font-size: 1.5rem;
+    width: 100%;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": 2,
+    "prettier/prettier": "error",
+    "consistent-return": "off",
+    "no-useless-catch": "off",
+    "@next/next/no-img-element": "off",
+    "react/no-array-index-key": "off"
+  },
+  "plugins": ["prettier"]
+}
