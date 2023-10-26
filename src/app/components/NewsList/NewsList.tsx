@@ -8,12 +8,14 @@ type Props = {
 };
 
 function NewsList({ news }: Props) {
-  return (
+  return news.length ? (
     <div className={styles.newsList}>
       {news.map((article) => (
         <Article article={article} key={article.id} />
       ))}
     </div>
+  ) : (
+    <h2>Nothing was found...</h2>
   );
 }
 

@@ -14,25 +14,14 @@
     max-width: 60%;
   }
 
+  &:focus-within {
+    border-color: $color-700-blue;
+  }
+
   input {
     border: none;
     flex: 1;
     font-size: 1.5rem;
     width: 100%;
-  }
-
-  button {
-    padding: $spacing-xs;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    &:disabled {
-      cursor: not-allowed;
-
-      img {
-        filter: invert(92%) sepia(7%) saturate(39%) hue-rotate(227deg) brightness(87%) contrast(87%);
-      }
-    }
   }
 }

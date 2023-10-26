@@ -35,6 +35,10 @@ select {
   outline: none;
 }
 
+input:disabled {
+  background-color: unset;
+}
+
 button {
   border: none;
   background-color: unset;

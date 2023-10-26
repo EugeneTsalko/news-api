@@ -52,6 +52,7 @@
     border-bottom-left-radius: $border-radius;
 
     &:hover {
+      cursor: pointer;
       background-color: $color-900-red;
     }
   }
