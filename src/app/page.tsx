@@ -21,7 +21,6 @@ function Home({ searchParams }: Props) {
         setLoading(true);
 
         if (!searchParams.q) {
-          setLoading(false);
           return;
         }
 
