@@ -17,7 +17,7 @@ type Props = {
 function Home({ searchParams }: Props) {
   const { news, loading, setNews, setLoading } = useNewsContext();
 
-  const [selects, setSelects] = useState<Selects>({});
+  const [selects, setSelects] = useState<Selects>({ language: 'en' });
 
   useEffect(() => {
     (async () => {
@@ -29,7 +29,7 @@ function Home({ searchParams }: Props) {
           return;
         }
 
-        const response = await getNews(searchParams.q);
+        const response = await getNews(searchParams.q, selects);
 
         if (response.status === 'error') {
           toast.error(response.message, { id: 'error' });
@@ -41,6 +41,10 @@ function Home({ searchParams }: Props) {
       }
     })();
   }, [searchParams, setLoading, setNews, selects]);
+
+  useEffect(() => {
+    console.log(selects);
+  }, [selects]);
 
   return (
     <main className={styles.main}>

@@ -20,15 +20,21 @@ function HomeSelectors({ selects, setSelects }: Props) {
       <Select
         name="sortBy"
         label="Sort by:"
-        defaultValue=""
-        options={['publishedAt', 'popularity']}
+        defaultValue="relevancy"
+        options={['publishedAt', 'popularity', 'relevancy']}
         onChange={handleChange}
       />
-      <Select name="pageSize" label="Page size:" defaultValue="" options={['3', '6', '9']} onChange={handleChange} />
+      <Select
+        name="pageSize"
+        label="Page size:"
+        defaultValue="100"
+        options={['3', '6', '9', '27', '100']}
+        onChange={handleChange}
+      />
       <Select
         name="language"
         label="Language:"
-        defaultValue=""
+        defaultValue="en"
         options={['en', 'fr', 'ru', 'de']}
         onChange={handleChange}
       />

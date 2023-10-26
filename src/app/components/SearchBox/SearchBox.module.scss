@@ -18,14 +18,6 @@
     border-color: $color-700-blue;
   }
 
-  &:has(input:disabled) {
-    border-color: $color-500-neutral;
-
-    img {
-      filter: invert(92%) sepia(7%) saturate(39%) hue-rotate(227deg) brightness(87%) contrast(87%);
-    }
-  }
-
   input {
     border: none;
     flex: 1;

@@ -12,10 +12,7 @@ function Select({ name, label, defaultValue, options, onChange }: Props) {
   return (
     <label htmlFor={name}>
       {label}
-      <select name={name} onChange={onChange} defaultValue="">
-        <option hidden disabled value={defaultValue}>
-          select option
-        </option>
+      <select name={name} onChange={onChange} defaultValue={defaultValue}>
         {options.map((option, i) => (
           <option value={option} key={i}>
             {option}
