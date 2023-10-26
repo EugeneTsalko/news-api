@@ -1,12 +1,14 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '@/page.module.scss';
 import toast from 'react-hot-toast';
 import { useNewsContext } from '@/context/news.context';
 import NewsList from './components/NewsList/NewsList';
 import Spinner from './components/Spinner/Spinner';
 import getNews from './utils/getNews';
+import HomeSelectors from './components/HomeSelectors/HomeSelectors';
+import { Selects } from './models/types';
 
 type Props = {
   searchParams: { q: string };
@@ -14,6 +16,8 @@ type Props = {
 
 function Home({ searchParams }: Props) {
   const { news, loading, setNews, setLoading } = useNewsContext();
+
+  const [selects, setSelects] = useState<Selects>({ language: 'en' });
 
   useEffect(() => {
     (async () => {
@@ -24,7 +28,7 @@ function Home({ searchParams }: Props) {
           return;
         }
 
-        const response = await getNews(searchParams.q);
+        const response = await getNews(searchParams.q, selects);
 
         if (response.status === 'error') {
           toast.error(response.message, { id: 'error' });
@@ -35,10 +39,12 @@ function Home({ searchParams }: Props) {
         setLoading(false);
       }
     })();
-  }, [searchParams, setLoading, setNews]);
+  }, [searchParams, setLoading, setNews, selects]);
 
   return (
     <main className={styles.main}>
+      <HomeSelectors selects={selects} setSelects={setSelects} />
+
       {loading ? (
         <Spinner />
       ) : (
