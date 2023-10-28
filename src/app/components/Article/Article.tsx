@@ -23,7 +23,7 @@ function Article({ article }: Props) {
             {author && author} - {humanDate}
           </p>
         </div>
-        <Link className={styles.article__readMore} href={`/article?id=${article.id}`}>
+        <Link className={styles.article__readMore} href={`/article/${article.id}`}>
           Read More
         </Link>
       </div>
