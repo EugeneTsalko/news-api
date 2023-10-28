@@ -13,7 +13,8 @@
     "consistent-return": "off",
     "no-useless-catch": "off",
     "@next/next/no-img-element": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "jsx-a11y/control-has-associated-label": "off"
   },
   "plugins": ["prettier"]
 }

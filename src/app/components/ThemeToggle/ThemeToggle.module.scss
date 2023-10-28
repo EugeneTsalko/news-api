@@ -1,0 +1,19 @@
+@use '../../styles/variables.scss' as *;
+
+.switch {
+  position: absolute;
+  top: 2rem;
+  right: $spacing-xl;
+  width: 2rem;
+  height: 2rem;
+  background: url(/theme-dark.svg) no-repeat center center / cover;
+  transition: $transition;
+
+  &.light {
+    background-image: url(/theme-light.svg);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
