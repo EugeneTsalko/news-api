@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 function ThemeToggle() {
   const { theme, setTheme } = useThemeContext();
 
-  const changeTheme = () => {
+  const toggleTheme = () => {
     if (theme === 'dark') {
       setTheme('light');
     } else {
@@ -18,7 +18,7 @@ function ThemeToggle() {
     }
   };
 
-  return <button type="button" className={cx({ switch: true, light: theme === 'dark' })} onClick={changeTheme} />;
+  return <button type="button" className={cx({ switch: true, switch_dark: theme === 'dark' })} onClick={toggleTheme} />;
 }
 
 export default ThemeToggle;

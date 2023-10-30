@@ -1,16 +1,17 @@
-@use '../../styles/variables.scss' as *;
+@use '@/styles/variables.scss' as *;
 
 .switch {
+  $_icon: var(--icon, url(/theme-light.svg));
   position: absolute;
   top: 2rem;
   right: $spacing-xl;
   width: 2rem;
   height: 2rem;
-  background: url(/theme-dark.svg) no-repeat center center / cover;
+  background: $_icon no-repeat center center / cover;
   transition: $transition;
 
-  &.light {
-    background-image: url(/theme-light.svg);
+  &_dark {
+    --icon: url(/theme-dark.svg);
   }
 
   &:hover {
