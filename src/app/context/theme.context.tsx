@@ -1,7 +1,6 @@
 'use client';
 
 import React, { Dispatch, ReactNode, SetStateAction, createContext, useContext, useMemo, useState } from 'react';
-import cn from 'classnames';
 
 type TTheme = 'light' | 'dark';
 
@@ -21,7 +20,8 @@ function ThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeContext.Provider value={themeContextValue}>
-      <body className={cn({ dark: theme === 'dark' })}>{children}</body>
+      {/* <body className={cn({ dark: theme === 'dark' })}>{children}</body> */}
+      {children}
     </ThemeContext.Provider>
   );
 }
