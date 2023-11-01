@@ -1,10 +1,9 @@
 @use '@/styles/variables.scss' as *;
-@use '@/styles/colors.scss' as *;
 
 .article {
   display: flex;
   flex-direction: column;
-  border: 1px solid $color-700-red;
+  border: 1px solid var(--secondary);
   border-radius: $border-radius;
 
   &__content {
@@ -36,14 +35,14 @@
   &__author {
     align-self: flex-end;
     font-style: italic;
-    color: $color-700-neutral;
+    color: var(--primary-dim);
   }
 
   &__readMore {
     display: block;
     text-align: center;
-    background-color: $color-700-red;
-    color: $color-white;
+    background-color: var(--secondary);
+    color: var(--primary-dark);
     font-size: larger;
     font-weight: 700;
     padding: $spacing-xs;
@@ -53,7 +52,7 @@
 
     &:hover {
       cursor: pointer;
-      background-color: $color-900-red;
+      background-color: var(--secondary-bright);
     }
   }
 }

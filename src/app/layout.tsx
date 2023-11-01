@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
 import NewsProvider from '@/context/news.context';
 import '@/styles/common.scss';
-import ThemeProvider from './context/theme.context';
+import { Toaster } from 'react-hot-toast';
+import Theme from './providers/theme.provider';
+import Header from './components/Header/Header';
 
 export const metadata = {
   title: 'News by EugeneTsalko',
@@ -11,9 +13,15 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <NewsProvider>
-        <ThemeProvider>{children}</ThemeProvider>
-      </NewsProvider>
+      <Theme>
+        <NewsProvider>
+          <body>
+            <Header />
+            {children}
+            <Toaster />
+          </body>
+        </NewsProvider>
+      </Theme>
     </html>
   );
 }

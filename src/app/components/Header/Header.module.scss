@@ -1,5 +1,4 @@
 @use '@/styles/variables.scss' as *;
-@use '@/styles/colors.scss' as *;
 
 .header {
   position: relative;
@@ -13,6 +12,6 @@
   width: 100%;
 
   h1 {
-    color: $color-700-red;
+    color: var(--secondary);
   }
 }

@@ -1,7 +1,27 @@
 @use './variables.scss' as *;
-@use './colors.scss' as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --primary: #060708;
+  --primary-dim: #121315;
+  --primary-dark: #efefef;
+  --secondary: #e90606;
+  --secondary-bright: #970202;
+  --background: #fff;
+  --accent: #00a9ff;
+}
+
+:root[data-theme='dark'] {
+  --primary: #d9d9d9;
+  --primary-dim: #666666;
+  --primary-dark: #202020;
+  --secondary: #002aff;
+  --secondary-bright: #4800ff;
+  --background: #060708;
+  --accent: green;
+  color-scheme: dark;
+}
 
 *,
 *::before,
@@ -21,6 +41,8 @@ body {
   font: inherit;
   font-size: 16px;
   transition: $transition;
+  background-color: var(--background);
+  color: var(--primary);
 }
 
 body {
@@ -41,11 +63,12 @@ select {
 }
 
 option {
-  color: $color-900-neutral;
+  color: var(--primary);
+  background-color: var(--background);
 }
 
 option:hover {
-  background-color: $color-700-blue;
+  background-color: var(--accent);
 }
 
 input:disabled {
@@ -64,9 +87,4 @@ a {
 
 h1 {
   font-size: 3rem;
-}
-
-.dark {
-  background-color: #333;
-  color: $color-white;
 }

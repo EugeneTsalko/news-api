@@ -1,5 +1,4 @@
 @use '@/styles/variables.scss' as *;
-@use '@/styles/colors.scss' as *;
 @use '@/styles/mixins.scss' as *;
 
 .searchBox {
@@ -7,7 +6,7 @@
   max-width: 80%;
   width: 100%;
   padding: $spacing-m;
-  border: 1px solid $color-500-neutral;
+  border: 1px solid var(--primary-dim);
   border-radius: $border-radius;
 
   @include from-desktop {
@@ -15,7 +14,7 @@
   }
 
   &:focus-within {
-    border-color: $color-700-blue;
+    border-color: var(--accent);
   }
 
   input {
