@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import NewsProvider from '@/context/news.context';
 import '@/styles/common.scss';
 import { Toaster } from 'react-hot-toast';
-import Theme from './providers/theme.provider';
+import NextThemesProvider from './providers/theme.provider';
 import Header from './components/Header/Header';
 
 export const metadata = {
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <Theme>
+      <NextThemesProvider>
         <NewsProvider>
           <body>
             <Header />
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Toaster />
           </body>
         </NewsProvider>
-      </Theme>
+      </NextThemesProvider>
     </html>
   );
 }
