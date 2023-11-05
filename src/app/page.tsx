@@ -42,8 +42,6 @@ function Home({ searchParams }: Props) {
   }, [searchParams, setLoading, setNews, selects]);
 
   return (
-    // <body className={cn({ dark: theme === 'dark' })}>
-    // <Header />
     <main className={styles.main}>
       <HomeSelectors selects={selects} setSelects={setSelects} />
 
@@ -58,8 +56,6 @@ function Home({ searchParams }: Props) {
         )
       )}
     </main>
-    // <Toaster />
-    // </body>
   );
 }
 

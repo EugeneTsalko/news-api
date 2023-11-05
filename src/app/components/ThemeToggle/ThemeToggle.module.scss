@@ -10,7 +10,7 @@
   background: $_icon no-repeat center center / cover;
   transition: $transition;
 
-  &_dark {
+  &--dark {
     --icon: url(/theme-dark.svg);
   }
 
