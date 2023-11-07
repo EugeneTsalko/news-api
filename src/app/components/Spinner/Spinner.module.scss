@@ -1,11 +1,9 @@
-@use '@/styles/colors.scss' as *;
-
 .spinner {
   width: 8rem;
   height: 8rem;
-  border: 10px solid $color-white;
+  border: 10px solid var(--background);
   border-radius: 50%;
-  border-top-color: $color-700-red;
+  border-top-color: var(--secondary);
   animation: spin 1s ease-in-out infinite;
 }
 
