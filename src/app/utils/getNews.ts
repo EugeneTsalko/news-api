@@ -4,7 +4,7 @@ import axios from 'axios';
 import { z } from 'zod';
 import objectToQueryString from './objectToQueryString';
 
-const getNews = async (keyword: string, params: Selects = {}): Promise<NewsData> => {
+const getNews = async (keyword: string, page: string, params: Selects = {}): Promise<NewsData> => {
   try {
     const queryParamsString = objectToQueryString(params);
 
@@ -14,7 +14,7 @@ const getNews = async (keyword: string, params: Selects = {}): Promise<NewsData>
 
     const news = schemaNewsResponse.parse(response.data).articles.map((el, i) => ({ ...el, id: `${i + 1}` }));
 
-    return { status: 'ok', message: USER_MESSAGE.success, data: news };
+    return { status: 'ok', totalResults: response.data.totalResults, message: USER_MESSAGE.success, data: news };
   } catch (e) {
     const result: NewsData = { status: 'error', message: USER_MESSAGE.smthWrong, data: [] };
 
