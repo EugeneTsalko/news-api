@@ -18,7 +18,7 @@ type Props = {
 function Home({ searchParams }: Props) {
   const { news, loading, setNews, setLoading } = useNewsContext();
 
-  const [selects, setSelects] = useState<Selects>({ language: 'en', pageSize: '3' });
+  const [selects, setSelects] = useState<Selects>({ language: 'en', pageSize: '9' });
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {

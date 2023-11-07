@@ -27,7 +27,7 @@ function HomeSelectors({ selects, setSelects }: Props) {
       <Select
         name="pageSize"
         label="Page size:"
-        defaultValue="100"
+        defaultValue="9"
         options={['3', '6', '9', '27', '100']}
         onChange={handleChange}
       />

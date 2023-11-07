@@ -1,20 +1,31 @@
 @use '@/styles/variables.scss' as *;
 
 .pagination {
-  border: 1px solid red;
+  border: 1px solid var(--primary-dark);
+  border-radius: $border-radius;
   display: flex;
   align-items: center;
-  gap: $spacing-l;
 
   &__item {
+    text-align: center;
+
     button {
-      padding: 1rem;
-      border: 1px solid green;
+      padding: $spacing-m;
       cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: var(--primary-dark);
+      }
+    }
+
+    span {
+      padding: $spacing-m;
     }
 
     &--active {
-      background-color: blue;
+      border: 1px solid var(--primary);
+      font-weight: 700;
     }
   }
 }
