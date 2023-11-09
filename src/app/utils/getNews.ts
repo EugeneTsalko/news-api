@@ -4,12 +4,12 @@ import axios from 'axios';
 import { z } from 'zod';
 import objectToQueryString from './objectToQueryString';
 
-const getNews = async (keyword: string, page: string, params: Selects = {}): Promise<NewsData> => {
+const getNews = async (keyword: string, page: string = '1', params: Selects = {}): Promise<NewsData> => {
   try {
     const queryParamsString = objectToQueryString(params);
 
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_URL}/everything?q=${keyword}${queryParamsString}&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`,
+      `${process.env.NEXT_PUBLIC_URL}/everything?q=${keyword}${queryParamsString}&page=${page}&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`,
     );
 
     const news = schemaNewsResponse.parse(response.data).articles.map((el, i) => ({ ...el, id: `${i + 1}` }));

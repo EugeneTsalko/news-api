@@ -53,12 +53,7 @@ function Home({ searchParams }: Props) {
           <>
             <h2>Search results for: {searchParams.q}</h2>
             <NewsList news={news} />
-            <Pagination
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              selects={selects}
-              setSelects={setSelects}
-            />
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
           </>
         )
       )}

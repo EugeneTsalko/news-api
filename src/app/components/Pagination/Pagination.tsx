@@ -1,20 +1,20 @@
 import { useNewsContext } from '@/context/news.context';
 import React from 'react';
-import { Selects } from '@/models/types';
 import classNames from 'classnames/bind';
 import getPaginationRange from '@/utils/getPaginationRange';
+import { useSearchParams, useRouter } from 'next/navigation';
 import styles from './Pagination.module.scss';
 
 type Props = {
   currentPage: number;
   setCurrentPage(value: number): void;
-  selects: Selects;
-  setSelects(selects: Selects): void;
 };
 
 const cx = classNames.bind(styles);
 
-function Pagination({ currentPage, setCurrentPage, selects, setSelects }: Props) {
+function Pagination({ currentPage, setCurrentPage }: Props) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { news } = useNewsContext();
   const totalPageNumber = Math.floor(100 / news.length); // 100 articles - API limit
   const isPreviousBtnDisabled = currentPage === 1;
@@ -24,7 +24,8 @@ function Pagination({ currentPage, setCurrentPage, selects, setSelects }: Props)
 
   const handlePageChange = (value: number) => {
     setCurrentPage(Math.max(1, Math.min(totalPageNumber, value)));
-    setSelects({ ...selects, page: value.toString() });
+    const query = `?q=${searchParams.get('q')}&page=${value}`;
+    router.push(query);
   };
 
   return (
