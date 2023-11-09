@@ -12,14 +12,14 @@ const getPaginationRange = (totalPageNumber: number, currentPage: number) => {
   const showRightDots = rightSiblingsIndex < totalPageNumber - 2;
 
   if (!showLeftDots && showRightDots) {
-    const leftItemsCount = currentPage < 3 ? 3 : currentPage + 1;
+    const leftItemsCount = Math.max(3, currentPage + 1);
     const leftRange = range(1, leftItemsCount + 1);
 
     return [...leftRange, '...', totalPageNumber];
   }
 
   if (showLeftDots && !showRightDots) {
-    const rightItemsCount = currentPage > totalPageNumber - 2 ? 3 : totalPageNumber - currentPage + 2;
+    const rightItemsCount = Math.max(3, totalPageNumber - currentPage + 2);
     const rightRange = range(totalPageNumber - rightItemsCount + 1, totalPageNumber + 1);
 
     return [1, '...', ...rightRange];
