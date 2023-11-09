@@ -1,4 +1,5 @@
 @use './styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .main {
   flex: 1 1 auto;
@@ -8,9 +9,13 @@
   gap: $spacing-m;
   max-width: $max-width-main;
   width: 100%;
-  padding: $spacing-xl;
+  padding: $spacing-m;
 
   h2 {
     margin-bottom: $spacing-m;
+  }
+
+  @include from-tablet {
+    padding: $spacing-xl;
   }
 }

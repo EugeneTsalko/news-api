@@ -1,8 +1,15 @@
 @use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .homeSelectors {
   display: flex;
-  gap: $spacing-l;
+  gap: $spacing-s;
+  font-size: 0.75rem;
+
+  @include from-tablet {
+    gap: $spacing-l;
+    font-size: 1rem;
+  }
 
   select {
     margin-left: $spacing-s;
