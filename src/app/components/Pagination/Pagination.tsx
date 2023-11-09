@@ -17,20 +17,25 @@ const cx = classNames.bind(styles);
 function Pagination({ currentPage, setCurrentPage, selects, setSelects }: Props) {
   const { news } = useNewsContext();
   const totalPageNumber = Math.floor(100 / news.length); // 100 articles - API limit
+  const isPreviousBtnDisabled = currentPage === 1;
+  const isNextBtnDisabled = currentPage === totalPageNumber;
 
   const paginationElements = getPaginationRange(totalPageNumber, currentPage);
 
   const handlePageChange = (value: number) => {
-    if ((value < currentPage && currentPage > 1) || (value > currentPage && currentPage < totalPageNumber)) {
-      setCurrentPage(value);
-      setSelects({ ...selects, page: value.toString() });
-    }
+    setCurrentPage(Math.max(1, Math.min(totalPageNumber, value)));
+    setSelects({ ...selects, page: value.toString() });
   };
 
   return (
     <ul className={styles.pagination}>
       <li className={styles.pagination__item}>
-        <button type="button" className={styles.pageLink} onClick={() => handlePageChange(currentPage - 1)}>
+        <button
+          type="button"
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={isPreviousBtnDisabled}
+          className={cx({ pagination__btn: true, 'pagination__btn--disabled': isPreviousBtnDisabled })}
+        >
           &lsaquo; Previous
         </button>
       </li>
@@ -38,19 +43,24 @@ function Pagination({ currentPage, setCurrentPage, selects, setSelects }: Props)
       {paginationElements.map((value, i) =>
         typeof value === 'number' ? (
           <li key={i} className={cx({ pagination__item: true, 'pagination__item--active': value === currentPage })}>
-            <button type="button" onClick={() => handlePageChange(value)}>
+            <button type="button" onClick={() => handlePageChange(value)} className={styles.pagination__btn}>
               {value}
             </button>
           </li>
         ) : (
           <li key={i} className={styles.pagination__item}>
-            <span className={styles.pageLink}>{value}</span>
+            <span>{value}</span>
           </li>
         ),
       )}
 
       <li className={styles.pagination__item}>
-        <button type="button" className={styles.pageLink} onClick={() => handlePageChange(currentPage + 1)}>
+        <button
+          type="button"
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={isNextBtnDisabled}
+          className={cx({ pagination__btn: true, 'pagination__btn--disabled': isNextBtnDisabled })}
+        >
           Next &rsaquo;
         </button>
       </li>

@@ -10,20 +10,6 @@
   &__item {
     text-align: center;
 
-    button {
-      padding: $spacing-s;
-      cursor: pointer;
-      transition: $transition;
-
-      &:hover {
-        background-color: var(--primary-dark);
-      }
-
-      @include from-tablet {
-        padding: $spacing-m;
-      }
-    }
-
     span {
       padding: $spacing-s;
 
@@ -35,6 +21,29 @@
     &--active {
       border: 1px solid var(--primary);
       font-weight: 700;
+    }
+  }
+
+  &__btn {
+    padding: $spacing-s;
+    transition: $transition;
+
+    &:hover {
+      background-color: var(--primary-dark);
+      cursor: pointer;
+    }
+
+    &--disabled {
+      color: var(--primary-dim);
+
+      &:hover {
+        cursor: not-allowed;
+        background-color: inherit;
+      }
+    }
+
+    @include from-tablet {
+      padding: $spacing-m;
     }
   }
 }
