@@ -11,11 +11,11 @@
   width: 100%;
   padding: $spacing-m;
 
-  h2 {
-    margin-bottom: $spacing-m;
-  }
-
   @include from-tablet {
     padding: $spacing-xl;
+  }
+
+  h2 {
+    margin-bottom: $spacing-m;
   }
 }

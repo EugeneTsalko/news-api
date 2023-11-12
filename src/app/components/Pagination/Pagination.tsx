@@ -1,32 +1,21 @@
-import { useNewsContext } from '@/context/news.context';
 import React from 'react';
 import classNames from 'classnames/bind';
 import getPaginationRange from '@/utils/getPaginationRange';
-import { useSearchParams, useRouter } from 'next/navigation';
 import styles from './Pagination.module.scss';
 
 type Props = {
+  totalPageNumber: number;
   currentPage: number;
-  setCurrentPage(value: number): void;
+  handlePageChange(value: number): void;
 };
 
 const cx = classNames.bind(styles);
 
-function Pagination({ currentPage, setCurrentPage }: Props) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const { news } = useNewsContext();
-  const totalPageNumber = Math.floor(100 / news.length); // 100 articles - API limit
+function Pagination({ currentPage, totalPageNumber, handlePageChange }: Props) {
   const isPreviousBtnDisabled = currentPage === 1;
   const isNextBtnDisabled = currentPage === totalPageNumber;
 
   const paginationElements = getPaginationRange(totalPageNumber, currentPage);
-
-  const handlePageChange = (value: number) => {
-    setCurrentPage(Math.max(1, Math.min(totalPageNumber, value)));
-    const query = `?q=${searchParams.get('q')}&page=${value}`;
-    router.push(query);
-  };
 
   return (
     <ul className={styles.pagination}>
@@ -35,9 +24,13 @@ function Pagination({ currentPage, setCurrentPage }: Props) {
           type="button"
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={isPreviousBtnDisabled}
-          className={cx({ pagination__btn: true, 'pagination__btn--disabled': isPreviousBtnDisabled })}
+          className={cx({
+            pagination__btn: true,
+            pagination__prevBtn: true,
+            'pagination__btn--disabled': isPreviousBtnDisabled,
+          })}
         >
-          &lsaquo; Previous
+          <p>Previous</p>
         </button>
       </li>
 
@@ -60,9 +53,13 @@ function Pagination({ currentPage, setCurrentPage }: Props) {
           type="button"
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={isNextBtnDisabled}
-          className={cx({ pagination__btn: true, 'pagination__btn--disabled': isNextBtnDisabled })}
+          className={cx({
+            pagination__btn: true,
+            pagination__nextBtn: true,
+            'pagination__btn--disabled': isNextBtnDisabled,
+          })}
         >
-          Next &rsaquo;
+          <p>Next</p>
         </button>
       </li>
     </ul>

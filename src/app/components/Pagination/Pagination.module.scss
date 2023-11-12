@@ -25,15 +25,21 @@
   }
 
   &__btn {
-    padding: $spacing-s;
+    padding: 0.8rem;
     transition: $transition;
+    display: flex;
+    gap: $spacing-s;
+
+    @include from-tablet {
+      padding: $spacing-m;
+    }
 
     &:hover {
       background-color: var(--primary-dark);
       cursor: pointer;
     }
 
-    &--disabled {
+    &[disabled] {
       color: var(--primary-dim);
 
       &:hover {
@@ -41,9 +47,28 @@
         background-color: inherit;
       }
     }
+  }
+
+  &__prevBtn p,
+  &__nextBtn p {
+    display: none;
 
     @include from-tablet {
-      padding: $spacing-m;
+      display: block;
+    }
+  }
+
+  &__prevBtn {
+    &::before {
+      content: '<';
+      font-size: 1rem;
+    }
+  }
+
+  &__nextBtn {
+    &::after {
+      content: '>';
+      font-size: 1rem;
     }
   }
 }
