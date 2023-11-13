@@ -22,6 +22,7 @@ type UserMessage = ObjectValues<typeof USER_MESSAGE>;
 export type NewsData = {
   status: 'ok' | 'error';
   message: UserMessage;
+  totalResults?: number;
   data: NewsWithId[];
 };
 
@@ -29,4 +30,5 @@ export type Selects = {
   sortBy?: 'publishedAt' | 'popularity';
   pageSize?: '3' | '6' | '9';
   language?: 'en' | 'ru' | 'fr' | 'de';
+  page?: string;
 };

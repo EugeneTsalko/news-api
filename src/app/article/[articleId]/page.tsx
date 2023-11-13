@@ -2,17 +2,17 @@
 
 import React from 'react';
 import { useNewsContext } from '@/context/news.context';
-import getHumanDate from '@/utils/getHumanDate';
 import { redirect } from 'next/navigation';
+import getHumanDate from '@/utils/getHumanDate';
 import styles from './ArticlePage.module.scss';
 
 type Props = {
-  searchParams: { id: string };
+  params: { articleId: string };
 };
 
-function ArticlePage({ searchParams }: Props) {
+function ArticlePage({ params: { articleId } }: Props) {
   const { news } = useNewsContext();
-  const article = news.find((el) => el.id === searchParams.id);
+  const article = news.find((el) => el.id === articleId);
 
   if (!article) {
     redirect('/');

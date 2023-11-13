@@ -1,0 +1,74 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
+
+.pagination {
+  border: 1px solid var(--primary-dark);
+  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+
+  &__item {
+    text-align: center;
+
+    span {
+      padding: $spacing-s;
+
+      @include from-tablet {
+        padding: $spacing-m;
+      }
+    }
+
+    &--active {
+      border: 1px solid var(--primary);
+      font-weight: 700;
+    }
+  }
+
+  &__btn {
+    padding: 0.8rem;
+    transition: $transition;
+    display: flex;
+    gap: $spacing-s;
+
+    @include from-tablet {
+      padding: $spacing-m;
+    }
+
+    &:hover {
+      background-color: var(--primary-dark);
+      cursor: pointer;
+    }
+
+    &[disabled] {
+      color: var(--primary-dim);
+
+      &:hover {
+        cursor: not-allowed;
+        background-color: inherit;
+      }
+    }
+  }
+
+  &__prevBtn p,
+  &__nextBtn p {
+    display: none;
+
+    @include from-tablet {
+      display: block;
+    }
+  }
+
+  &__prevBtn {
+    &::before {
+      content: '<';
+      font-size: 1rem;
+    }
+  }
+
+  &__nextBtn {
+    &::after {
+      content: '>';
+      font-size: 1rem;
+    }
+  }
+}
