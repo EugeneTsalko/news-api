@@ -27,7 +27,6 @@ function Pagination({ currentPage, totalPageNumber, handlePageChange }: Props) {
           className={cx({
             pagination__btn: true,
             pagination__prevBtn: true,
-            'pagination__btn--disabled': isPreviousBtnDisabled,
           })}
         >
           <p>Previous</p>
@@ -56,7 +55,6 @@ function Pagination({ currentPage, totalPageNumber, handlePageChange }: Props) {
           className={cx({
             pagination__btn: true,
             pagination__nextBtn: true,
-            'pagination__btn--disabled': isNextBtnDisabled,
           })}
         >
           <p>Next</p>
