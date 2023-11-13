@@ -15,7 +15,9 @@
     "@next/next/no-img-element": "off",
     "react/no-array-index-key": "off",
     "react/jsx-no-useless-fragment": "off",
-    "jsx-a11y/control-has-associated-label": "off"
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/click-events-have-key-events": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "plugins": ["prettier"]
 }
